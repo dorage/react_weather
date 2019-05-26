@@ -80,8 +80,6 @@ export default class extends React.Component {
         wind: speed,
         name
       });
-      console.log(await weatherApi.current(lat, lng));
-      console.log(await weatherApi.week(lat, lng));
     } catch (error) {
       console.log(error);
     }
