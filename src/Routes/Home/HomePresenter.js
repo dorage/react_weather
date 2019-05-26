@@ -83,9 +83,9 @@ const HomePresenter = ({
     <DayBox>
       {loading ? (
         <>
-          <Loading>Loading NOW..</Loading>
-          <Loading>FXXKING..</Loading>
-          <Loading>HARD..</Loading>
+          <Loading>Searching..</Loading>
+          <Loading>Your Town..</Loading>
+          <Loading>Now..</Loading>
         </>
       ) : (
         <>
