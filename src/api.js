@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const WeatherApi = axios.create({
-  baseURL: 'http://api.openweathermap.org/data/2.5/',
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
   params: {
     appid: '1900bc63322a0b8edfe6240a388b20b3',
     units: 'metric'
