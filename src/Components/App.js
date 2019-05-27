@@ -1,12 +1,12 @@
 import React from 'react';
 import GlobalStyles from './GlobalStyles';
-import Home from '../Routes/Home';
+import Geolocate from './Geolocate';
 import Footer from './Footer';
 
 const App = () => {
   return (
     <>
-      <Home />
+      <Geolocate />
       <GlobalStyles />
       <Footer />
     </>

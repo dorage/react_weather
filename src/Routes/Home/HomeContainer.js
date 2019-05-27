@@ -3,16 +3,22 @@ import HomePresenter from './HomePresenter';
 import { placeApi, weatherApi } from '../../api';
 
 export default class extends React.Component {
-  state = {
-    searchTerm: '',
-    placeholder: '',
-    name: '',
-    temp: 21,
-    wind: 50,
-    icon: '01d',
-    description: 'sunny day',
-    loading: true
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchTerm: '',
+      placeholder: '',
+      lat: 0,
+      lng: 0,
+      name: '',
+      temp: 21,
+      wind: 50,
+      icon: '01d',
+      description: 'sunny day',
+      loading: true
+    };
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -56,8 +62,6 @@ export default class extends React.Component {
       this.setState({ searchTerm: '', placeholder: searchTerm });
     } catch (error) {
       console.log(error);
-    } finally {
-      this.setState({ loading: false });
     }
   };
 
@@ -78,12 +82,18 @@ export default class extends React.Component {
         icon,
         temp,
         wind: speed,
-        name
+        name,
+        loading: false
       });
     } catch (error) {
       console.log(error);
     }
   };
+
+  componentWillReceiveProps(nextProps) {
+    const { latitude, longitude } = nextProps;
+    if (latitude && longitude) this.getWeather(latitude, longitude);
+  }
 
   render() {
     const {
